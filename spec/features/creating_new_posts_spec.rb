@@ -1,7 +1,7 @@
 require 'rails_helper.rb'
 
-describe 'Creating posts' do
-  it 'can create a job' do
+feature 'Creating posts' do
+  scenario 'can create a new job' do
     visit '/'
     click_link 'New Post'
     attach_file('Image', "spec/files/images/coffee.jpg")
@@ -10,7 +10,7 @@ describe 'Creating posts' do
     expect(page).to have_content("#coffeetime")
     expect(page).to have_css("img[src*='coffee']")
   end
-  it 'needs an image to create a post' do
+  scenario 'a post needs an image to save' do
     visit '/'
     click_link 'New Post'
     fill_in 'Caption', with: "No picture because YOLO"

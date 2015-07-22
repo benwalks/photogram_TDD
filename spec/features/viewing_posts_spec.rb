@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'viewing individual posts' do
-  it 'can click and view a post' do
+features 'viewing individual posts' do
+  scenario 'can click and view a single post from the index' do
     post = create(:post)
 
     visit '/'

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'deleting posts' do
-  before do
+features 'deleting posts' do
+  background do
     post = create(:post, caption: 'Abs for days.')
 
     visit '/'
@@ -9,7 +9,7 @@ describe 'deleting posts' do
     find(:xpath, "//a[contains(@href,'posts/1')]").click
     click_link 'Edit Post'
   end
-  it 'can delete a post' do
+  scenario 'can delete a post' do
     click_link 'Delete Post'
 
     expect(page).to have_content('Problem solved!  Post deleted.')
